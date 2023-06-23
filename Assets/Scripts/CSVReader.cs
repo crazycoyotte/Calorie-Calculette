@@ -83,6 +83,7 @@ public class CSVReader : MonoBehaviour
     public List<string> GetSuggestedFood(string inputText)
     {
         List<string> suggestedFood = new List<string>();
+        
 
         foreach (Food food in foodList.food)
         {
@@ -93,5 +94,21 @@ public class CSVReader : MonoBehaviour
         }
 
         return suggestedFood;
+    }
+
+    public float GetRawKcal(string foodName)
+    {
+        float rawKcal = 0f;
+
+        foreach (Food food in foodList.food)
+        {
+            if (food.name.Equals(foodName, StringComparison.OrdinalIgnoreCase))
+            {
+                rawKcal = food.rawKCal;
+                break;
+            }
+        }
+
+        return rawKcal;
     }
 }
